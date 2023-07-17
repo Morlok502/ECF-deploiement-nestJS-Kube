@@ -18,10 +18,12 @@ ___
 
 #### 3.1 Utilisation de AWS Codepipeline
 
-Ces 2 points ont été traités dans le repository [ECF-Hello-world-nestJS](https://github.com/Morlok502/ECF-Hello-world-nestJS#3-%C3%A9crivez-le-script-qui-buildtest-et-le-nodejs-et-d%C3%A9ployez-le-sur-le-kube-cr%C3%A9%C3%A9) voir [README.md](https://github.com/Morlok502/ECF-Hello-world-nestJS#3-%C3%A9crivez-le-script-qui-buildtest-et-le-nodejs-et-d%C3%A9ployez-le-sur-le-kube-cr%C3%A9%C3%A9)  
+Cette partie a été traitée dans le repository [ECF-Hello-world-nestJS](https://github.com/Morlok502/ECF-Hello-world-nestJS).  
+Voir [README.md](https://github.com/Morlok502/ECF-Hello-world-nestJS#31-utilisation-de-aws-codepipeline) pour le détail de cette étape.  
 
 #### 3.2 Utilisation de AWS CodeBuild
 
-Ces 2 points ont été traités dans le repository [ECF-Hello-world-nestJS](https://github.com/Morlok502/ECF-Hello-world-nestJS#3-%C3%A9crivez-le-script-qui-buildtest-et-le-nodejs-et-d%C3%A9ployez-le-sur-le-kube-cr%C3%A9%C3%A9) voir [README.md](https://github.com/Morlok502/ECF-Hello-world-nestJS#3-%C3%A9crivez-le-script-qui-buildtest-et-le-nodejs-et-d%C3%A9ployez-le-sur-le-kube-cr%C3%A9%C3%A9)  
+Cette partie a été traitée dans le repository [ECF-Hello-world-nestJS](https://github.com/Morlok502/ECF-Hello-world-nestJS).  
+Voir [README.md](https://github.com/Morlok502/ECF-Hello-world-nestJS#32-utilisation-de-aws-codebuild) pour le détail de cette étape.    
 
 #### 3.3 déploiement de l'application nestjs dans le Kube (AWS EKS)
