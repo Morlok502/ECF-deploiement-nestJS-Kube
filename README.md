@@ -9,6 +9,7 @@ ___
       - [3.1 Utilisation de AWS Codepipeline](#31-utilisation-de-aws-codepipeline)
       - [3.2 Utilisation de AWS CodeBuild](#32-utilisation-de-aws-codebuild)
       - [3.3 déploiement de l'application nestjs dans le Kube (AWS EKS)](#33-déploiement-de-lapplication-nestjs-dans-le-kube-aws-eks)
+    - [Sources utilisées](#sources-utilisées)
 
 
 
@@ -27,3 +28,8 @@ Cette partie a été traitée dans le repository [ECF-Hello-world-nestJS](https:
 Voir [README.md](https://github.com/Morlok502/ECF-Hello-world-nestJS#32-utilisation-de-aws-codebuild) pour le détail de cette étape.    
 
 #### 3.3 déploiement de l'application nestjs dans le Kube (AWS EKS)
+
+
+### Sources utilisées  
+
+[YouTube - Getting Started with EKS and Terraform](https://www.youtube.com/watch?v=Qy2A_yJH5-o&list=WL&index=18)

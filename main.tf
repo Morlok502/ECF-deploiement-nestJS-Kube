@@ -1,19 +1,8 @@
-﻿// provider "kubernetes" {
-//  host                   = data.aws_eks_cluster.cluster.endpoint
-//  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-//  token                  = data.aws_eks_cluster_auth.cluster.token
-// //load_config_file       = false
-
-
-provider "kubernetes" {
-  config_path = "~/.kube/config"
-}
-
-resource "kubernetes_deployment" "example" {
+﻿resource "kubernetes_deployment" "hello-world-nest-js" {
   metadata {
-    name = "terraform-example"
+    name = "terraform-deploy-kube"
     labels = {
-      test = "MyExampleApp"
+      app_to_deploy = "ECF-Hello-world-nestJS"
     }
   }
 
@@ -22,21 +11,51 @@ resource "kubernetes_deployment" "example" {
 
     selector {
       match_labels = {
-        test = "MyExampleApp"
+        app_to_deploy = "ECF-Hello-world-nestJS"
       }
     }
 
     template {
       metadata {
         labels = {
-          test = "MyExampleApp"
+          app_to_deploy = "ECF-Hello-world-nestJS"
         }
       }
 
       spec {
         container {
-          image = "nginx:latest"
-          name  = "example"
+          image = "211758855362.dkr.ecr.eu-west-3.amazonaws.com/studi-ecf:latest"
+          name  = "hello-world-nest-js"
+
+          liveness_probe {
+            tcp_socket {
+              port = 3000
+            }
+
+            failure_threshold     = 3
+            initial_delay_seconds = 3
+            period_seconds        = 10
+            success_threshold     = 1
+            timeout_seconds       = 2
+          }
+
+          readiness_probe {
+            tcp_socket {
+              port = 3000
+            }
+
+            failure_threshold     = 1
+            initial_delay_seconds = 10
+            period_seconds        = 10
+            success_threshold     = 1
+            timeout_seconds       = 2
+          }
+
+          port {
+            name           = "http"
+            container_port = 3000
+            protocol       = "TCP"
+          }
 
           resources {
             limits = {
@@ -48,23 +67,25 @@ resource "kubernetes_deployment" "example" {
               memory = "50Mi"
             }
           }
+
         }
       }
     }
   }
 }
 
-resource "kubernetes_service" "example" {
+resource "kubernetes_service" "hello-world-nest-js" {
   metadata {
-    name = "terraform-example"
+    name = "terraform-deploy-kube"
   }
   spec {
     selector = {
-      test = "MyExampleApp"
+      app_to_deploy = "ECF-Hello-world-nestJS"
     }
     port {
-      port        = 80
-      target_port = 80
+      port        = 3000
+      target_port = 3000
+      protocol    = "TCP"
     }
 
     type = "LoadBalancer"
