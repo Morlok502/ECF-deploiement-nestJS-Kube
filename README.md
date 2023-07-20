@@ -28,7 +28,10 @@ ___
 - ajout de `secrets.tf` dans `.gitignore` afin de ne pas le push vers le repository.  
 - ajout d'une ressource `kubernetes_secret` pour passer ces variables à notre cluster  
 ![ressource-secrets](img/image-1.png)  
-- après déploiement, les secrets ont bien été ajoutés dans notre cluster EKS  
+- Lors du déploiement, les secrets sont encodés en base64. Ont les retrouve ensuite dans notre cluster EKS  
+![secrets dans EKS](img/image-2.png)
+- On peut récupérer localement les secrets, à l'aide de commandes `kubectl`  
+![Alt text](img/image-3.png)
 
 ## Activité Type 2 : Déploiement d’une application en continu
 
