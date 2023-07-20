@@ -49,8 +49,12 @@ Voir [README.md](https://github.com/Morlok502/ECF-Hello-world-nestJS#32-utilisat
 
 #### 3.3 déploiement de l'application nestjs dans le Kube (AWS EKS)
 
+Création d'un nouveau projet terraform, afin de déployer les 3 ressources suivantes dans notre cluster EKS :  
+- kubernetes_secret (qui contient les credentials pour se connecter à notre base de données postgreSQL)  
+- kubernetes_deployment (le déploiement de l'image de notre application nest.js, dans un container)  
+- kubernetes_service (service de type LoadBalancer, afin d'exposer notre application en public)  
 
 ## Sources utilisées  
 
-[YouTube - Getting Started with EKS and Terraform](https://www.youtube.com/watch?v=Qy2A_yJH5-o&list=WL&index=18)
-[Terraform - kubernetes_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret) 
+[YouTube - Getting Started with EKS and Terraform](https://www.youtube.com/watch?v=Qy2A_yJH5-o&list=WL&index=18)  
+[Terraform - kubernetes_secret](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/secret)   
