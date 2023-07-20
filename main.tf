@@ -1,4 +1,23 @@
-﻿resource "kubernetes_deployment" "hello-world-nest-js" {
+﻿########## Secrets ##########
+
+resource "kubernetes_secret" "postgres_auth" {
+  metadata {
+    name = "postgres-auth"
+  }
+
+  data = {
+    username      = var.username
+    password      = var.password
+    database_name = var.database_name
+  }
+
+  type = "kubernetes.io/postgres-auth"
+}
+
+
+########## Deployment ##########
+
+resource "kubernetes_deployment" "hello-world-nest-js" {
   metadata {
     name = "terraform-deploy-kube"
     labels = {
@@ -67,12 +86,25 @@
               memory = "50Mi"
             }
           }
-
+          env {
+            name  = "POSTGRES_USER"
+            value = kubernetes_secret.postgres_auth.data.username
+          }
+          env {
+            name  = "POSTGRES_PASSWORD"
+            value = kubernetes_secret.postgres_auth.data.password
+          }
+          env {
+            name  = "POSTGRES_DATABASE"
+            value = kubernetes_secret.postgres_auth.data.database_name
+          }
         }
       }
     }
   }
 }
+
+########## Service ##########
 
 resource "kubernetes_service" "hello-world-nest-js" {
   metadata {
